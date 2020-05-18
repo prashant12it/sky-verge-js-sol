@@ -1,0 +1,27 @@
+<html>
+<head>
+</head>
+<body>
+<ul id="todo-app">
+    <li class="todo">Walk the dog</li>
+    <li class="todo">Pay bills</li>
+    <li class="todo">Make dinner</li>
+    <li class="todo">Code for one hour</li>
+</ul>
+<script>
+    todos = document.getElementsByTagName('li');
+    i = 0;
+    while (typeof( todos.item(i) ) === 'object') {
+        (function () {
+            var todo = todos.item(i);
+            var itemIndex = i;
+            todo.addEventListener('click', function (evt) {
+                evt.target.style = 'text-decoration: line-through';
+                alert('Item ' + ( itemIndex + 1 ) + ': "' + evt.target.innerText + '" is done!');
+            });
+            i++;
+        }());
+    }
+</script>
+</body>
+</html>
